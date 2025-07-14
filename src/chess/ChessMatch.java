@@ -119,11 +119,11 @@ public class ChessMatch {
 	}
 
 	public ChessPiece replacePromotedPiece(String type) {
-		if(promoted == null) {
+		if (promoted == null) {
 			throw new IllegalStateException("There is no piece to be promoted");
 		}
-		if(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
-			throw new InvalidParameterException("Invalida type for promotion");
+		if (!type.equals("B") && !type.equals("N") && !type.equals("R") & !type.equals("Q")) {
+			return promoted;
 		}
 		
 		Position pos = promoted.getChessPosition().toPosition();
@@ -133,8 +133,8 @@ public class ChessMatch {
 		ChessPiece newPiece = newPiece(type, promoted.getColor());
 		board.placePiece(newPiece, pos);
 		piecesOnBoard.add(newPiece);
-		return newPiece;
 		
+		return newPiece;
 	}
 	
 	private ChessPiece newPiece(String type, Color color) {
